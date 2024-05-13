@@ -1,0 +1,38 @@
+@import url(/styles/header.css);
+@import url(/styles/banner.css);
+@import url(/styles/carrossel.css);
+@import url(/styles/topicos.css);
+@import url(/styles/contato.css);
+@import url(/styles/rodape.css);
+@import url(/styles/Login.css);
+@import url(/styles/cadastro.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+
+
+:root
+{
+    --branco:#ffffff;
+    --preto:#000000;
+    --cinza:#474646;
+    --cinza-claro:#858585;
+    --azul-claro:#c7e9f1;
+    --font-familly-primaria:"Poppins", sans-serif;
+    --font-familly-secundaria:"Josefin Sans";
+    --font-familly-terciaria:"Montserrat", sans-serif;
+    --rosa-1: #ffb7c9;
+    --rosa-2: #ffc9d6;
+    --rosa-3: #ffdbe4;
+    --rosa-4: #ffedf1;
+    --rosa-5: #eb9ac0;
+    --rosa-degrade:linear-gradient(97.54deg, #ffb7c9 35.49%, #ffedf1 165.37%);
+}
+
+body
+{
+    background-color: var(--rosa-4);
+    font-family: var(--font-familly-primaria);
+    font-weight: 400;
+    font-size: 16px;
+}

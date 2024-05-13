@@ -1,0 +1,274 @@
+.cabecalho
+{
+background-color: var(--rosa-4);
+display: flex;
+justify-content: space-between ;
+align-items: center;
+position: relative;
+}
+
+.menu-hamburguer
+{
+    width: 24px;
+    height: 24px;
+    background-image: url(/Public/icons8-cardápio-32.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.logo
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-2
+{
+    display: none;
+}
+
+.logo-3
+{
+    display: none;
+}
+.container
+{
+    display: flex;
+    align-items: center;
+}
+
+.imagem-container
+{
+    padding: 1em;
+}
+
+.botao-container
+{
+    display: none;
+}
+
+.botao-container:checked ~ .container-rotulo > .menu-hamburguer
+{
+    background-image: url(../Public/icons8-cardápio-32\ \(1\).png);
+}
+
+.botao-container:checked ~ .container-rotulo
+{
+    background: var(--rosa-degrade);
+}
+
+.lista-menu
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+}
+
+.botao-container:checked ~ .lista-menu
+{
+ display: block;
+}
+
+.lista-menu-titulo, .lista-menu-item
+{
+  padding: 1em;
+  background-color: var(--branco);
+   
+}
+.lista-menu-titulo
+{
+    color: var(--preto);
+    font-weight: 700;
+}
+
+.lista-menu-link
+{
+    background: var(--preto);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    background-clip: text;  /*esse background-clip: text. prende a cor escolhida no texto*/
+    text-transform: uppercase;
+    
+}
+
+.container-titulo
+{
+    display: none;
+}
+
+.opcoes
+{
+    display: none;
+}
+
+.container-texto
+{
+    display: none;
+}
+.banner-pesquisa-1
+{
+    display: none;
+}
+@media screen and (min-width: 1024px) {
+    .container-titulo,
+    .container-titulo-bold {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+    .container-titulo {
+        font-weight: 400;
+        display: block;
+    }
+    .container-titulo-bold {
+        font-weight: 700;
+    }
+
+    .opcoes
+    {
+        display: flex;
+        list-style-type: none;
+    }
+
+    .opcoes-item
+    {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+   .opcoes-link
+   {
+     text-decoration: none;
+     color: var(--preto);
+   }
+
+   .container-coracao
+   {
+    display: none;
+   }
+
+   .menu-hamburguer
+   {
+    display: none;
+   }
+
+   .botao-menu-opcoes:checked ~ .lista-menu
+   {
+     display: block;
+     width: auto;
+     list-style-type: none;
+   }
+
+   .botao-menu-opcoes
+   {
+    display: none;
+   }
+
+   .botao-menu-opcoes:checked ~ .opcoes-rotulo > .opcoes-item
+   {
+       background:var(--rosa-degrade);
+       color: var(--branco);
+   }
+   
+   .opcoes-item
+   {
+    padding: 2em 1em;
+   }
+
+   .lista-menu-item:hover {
+    background: var(--rosa-degrade);
+   }
+
+   .lista-menu-item:hover > .lista-menu-link 
+   {
+    -webkit-text-fill-color: var(--branco);
+    text-decoration: none;
+
+   }
+
+   .container
+   {
+    display: none;
+   }
+   
+   .logo
+   {
+    display: none;
+   }
+
+   .logo-2
+   {
+    display: flex;
+    justify-content: space-between;
+   }
+   .logo-3
+   {
+    display: none;
+   }
+
+   .banner-pesquisa-1
+   {
+    display: none;
+   }
+ }
+ @media screen and (min-width:1728px)
+ {
+      .container-link
+      {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+      }
+
+      .container-texto
+      {
+        display: block;
+      }
+
+      .cabecalho
+      {
+        padding: 0 2em;
+      }
+
+      .opcoes
+      {
+        margin-right: auto;
+      }
+      
+      .logo
+      {
+        display: none;
+      }
+      .logo-2
+      {
+        display: none;
+      }
+      .logo-3
+      {
+        display: flex;
+        justify-content: space-between;
+      }
+        .banner-pesquisa-1
+        {
+            background-color: transparent;
+            border: 1px solid;
+            color: var(--preto);
+            border-radius: 24px;
+            padding: 1em;
+            width: 50%;
+            display: flex;
+        }
+
+        .banner-pesquisa-1::placeholder
+        {
+            font-family: var(--font-familly-primaria);
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+            color: var(--preto);
+            background: url(/Public/icons8-pesquisar-16.png) no-repeat;
+            background-position: 1px ;
+        }
+ }

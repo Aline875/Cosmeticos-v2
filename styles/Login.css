@@ -1,0 +1,152 @@
+#form {
+    background: #fff;
+    width: 38em;
+    margin: 2em auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.3em;
+    justify-content: center;
+  }
+
+.form-esquerda,
+.form-direita 
+{
+     width: 100%; 
+     float: none; 
+ }
+  
+.form-esquerda 
+{
+    padding: 0; 
+}
+  
+.form-direita .form-login-rede 
+    {
+      margin-top: 1em; 
+    }
+    
+.cabecalho-form 
+{
+    background: var(--rosa-5);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1.5em;
+    font-size: 1.1em;
+}
+  
+.form-esquerda 
+{
+    width: 40%;
+    float: left;
+    padding-left: 2em; 
+}
+  
+.form-direita 
+{
+    width: 40%;
+    float: right;
+}
+  
+.form-esquerda label 
+{
+    display: block;
+    color: var(--cinza-claro);
+    font-size: 1.1em;
+    margin-top: 0.6em;
+}
+  
+.form-esquerda input[type="email"],
+.form-esquerda input[type="password"],
+.form-esquerda input[type="text"]
+{
+    border: 0.1em solid var(--preto);
+    padding: 1em;
+    margin: 0.6em 0;
+    max-width: 100%;
+    outline: none;
+    border-radius: 4px;
+  }
+  
+.form-esquerda button[type="submit"] 
+{
+    background: var(--rosa-5);
+    color: var(--branco);
+    outline: none;
+    padding: 1em;
+    overflow: hidden;
+    border: none;
+    letter-spacing: 0.1em;
+    margin: 0.5em 0;
+    border-radius: 0.4em;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .form-esquerda button[type = "submit"]:hover
+  {
+      background-color: var(--rosa-3);
+      color: var(--preto);
+  }
+
+  button a
+  {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .form-direita .form-login-rede {
+    color: var(--cinza-claro);
+    font-size: 1.1em;
+    text-align: center;
+  }
+  
+  .form-direita a {
+    display: flex;
+    font-size: 1em;
+    text-decoration: none;
+    color: var(--branco);
+    width: 9em;
+    padding: 0.5em 0.3em;
+    clear: both;
+    text-align: center;
+    margin: 0.5em 0.1em;
+    border-radius: 2px;
+    justify-content: center;
+  }
+  
+  .form-direita a.facebook {
+    background: #3a589a;
+  }
+  
+  .form-direita a.google {
+    background: #d1231a;
+  }
+  
+  .form-direita a.cadastro {
+    background: #eb9ac0;
+  }
+  
+
+  @media screen and (min-width: 1024px) {
+    
+    #form {
+        width: 70%; 
+    }
+
+    #form .form-esquerda input[type="email"],
+    #form .form-esquerda input[type="password"],
+    #form .form-esquerda input[type="text"] {
+        max-width: 100%; 
+    }
+
+    #form .form-esquerda button[type="submit"] {
+        width: 100%;
+    }
+
+    #form .form-direita .form-login-rede {
+        font-size: 1.2em;
+    }
+}
+
