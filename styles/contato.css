@@ -41,6 +41,21 @@
     padding-left: 2em;
 }
 
+
+.mensagem {
+    font-size: 14px; /* Tamanho da fonte */
+    margin-top: 5px; /* Espaçamento superior */
+  }
+  
+  .mensagem-sucesso {
+    color: green; /* Cor verde para mensagem de sucesso */
+  }
+  
+  .mensagem-erro {
+    color: red; /* Cor vermelha para mensagem de erro */
+  }
+  
+
 @media screen and (min-width: 1024px)
 {
  .contato

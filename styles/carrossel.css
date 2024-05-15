@@ -151,6 +151,20 @@ display: none;
   color: #888;
 }
 
+.interacoes-produto button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: transparent; /* tornando o botão transparente */
+  color: #007bff; /* cor do texto */
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.interacoes-produto button:hover {
+  background: var(--rosa-4); 
+}
+
+
 @media screen and (min-width: 1024px)
 {
   .carrossel-titulo
