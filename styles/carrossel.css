@@ -131,6 +131,26 @@ display: none;
   height: auto; /* Altura automática para manter a proporção da imagem */
 }
 
+.swiper-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.produto-info {
+  text-align: center;
+  margin-top: 10px;
+}
+.produto-nome {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+.produto-preco {
+  font-size: 0.9rem;
+  color: #888;
+}
+
 @media screen and (min-width: 1024px)
 {
   .carrossel-titulo
