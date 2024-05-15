@@ -34,6 +34,36 @@
   background: var(--rosa-1);
 }
 
+.button
+{
+  color: var(--preto);
+  padding: 1em;
+  background-color: var(--rosa-5);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.button:hover
+{
+  background: var(--rosa-1);
+}
+
+.mensagem 
+{
+    font-size: 14px; 
+}
+
+.mensagem-sucesso 
+{
+    color: green; 
+}
+
+.mensagem-erro 
+{
+    color: red; 
+}
+
 @media screen and (min-width: 1024px)
 {
   .topicos-titulo
