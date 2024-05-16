@@ -13,6 +13,7 @@ function validarLogin() {
     // Verificar se os dados de login correspondem aos dados de cadastro
     if (email === cadastroEmail && senha === cadastroSenha) {
         // Login bem-sucedido
+        window.location.href = "/"; // Redireciona para a página principal
         alert("Login bem-sucedido!");
     } else {
         // Credenciais inválidas

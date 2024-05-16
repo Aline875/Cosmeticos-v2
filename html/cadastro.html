@@ -11,18 +11,18 @@
 <body>
     <header></header>
     <main>
-        <form action="#" id="form" onsubmit="validarCadastro()">
+        <form id="form" onsubmit="validarCadastro()">
             <div class="cabecalho-form">Cadastro</div>
             <div class="form-esquerda">
-                <label for="nome" >Nome:</label>
-                <input type="text" name="nome" id="nome" placeholder="digite seu nome" >
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" >
-                <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha" placeholder="senha" >
-                <label for="senha">Confirme sua senha: </label>
-                <input type="password" name="senha" id="confirmarsenha" placeholder="senha" >
-                <button type="submit"><a href="#">Cadastrar</a></button>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" required>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <label for="confirmarsenha">Confirme sua senha:</label>
+                <input type="password" name="confirmarsenha" id="confirmarsenha" placeholder="Confirme sua senha" required>
+                <button type="submit">Cadastrar</button>
             </div>
             <div class="form-direita">
                 <div class="form-login-rede">
