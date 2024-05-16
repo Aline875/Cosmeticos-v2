@@ -49,20 +49,6 @@
   background: var(--rosa-1);
 }
 
-.mensagem 
-{
-    font-size: 14px; 
-}
-
-.mensagem-sucesso 
-{
-    color: green; 
-}
-
-.mensagem-erro 
-{
-    color: red; 
-}
 
 @media screen and (min-width: 1024px)
 {

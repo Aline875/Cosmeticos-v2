@@ -9,10 +9,10 @@ function cadastrarEmail() {
 
     if(validarEmail(email))
         {
-            document.getElementById("mensagem-sucesso").innerHTML = "Email cadastrado com sucesso!"; 
+            alert("Email cadastrado com sucesso!")
         }
         else
         {
-            document.getElementById("mensagem-erro").innerHTML = "Por favor, insira um email válido."
+            alert("Por favor, insira um email válido.")
         }
 }
