@@ -123,7 +123,7 @@
                                 <p class="produto-nome">Nativa SPA Jasmim Sambac</p>
                                 <p class="produto-preco">R$ 79,90</p>
                                 <div class="interacoes-produto">
-                                    <button class="btn-curtir"><img src="/Public/icons8-gostar-32.png" alt=""></button>
+                                    <button class="btn-curtir" id="butn-curtir"><img src="/Public/icons8-gostar-32.png" alt=""></button>
                                     <button class="btn-compartilhar"><img src="/Public/icons8-forward-arrow-32.png" alt=""></button>
                                     <button class="btn-comprar"><img src="/Public/icons8-vender-estoque-32.png" alt=""></button>
                                 </div>
@@ -135,7 +135,7 @@
                                 <p class="produto-nome">Malbec Vert</p>
                                 <p class="produto-preco">R$ 159,90</p>
                                 <div class="interacoes-produto">
-                                    <button class="btn-curtir"><img src="/Public/icons8-gostar-32.png" alt=""></button>
+                                    <button class="btn-curtir" id="btn-curtir" ><img src="/Public/icons8-gostar-32.png" alt=""></button>
                                     <button class="btn-compartilhar"><img src="/Public/icons8-forward-arrow-32.png" alt=""></button>
                                     <button class="btn-comprar"><img src="/Public/icons8-vender-estoque-32.png" alt=""></button>
                                 </div>
@@ -314,8 +314,16 @@
 <section class="topicos">
     <ul class="topicos-lista">
         <li class="topicos-item">
-            <a href="#" class="topicos-link">Cupons</a>
-        </li>
+            <a href="#" class="topicos-link cupons">Cupons</a>
+            <section id="cupons" class="cupons hidden">
+                <h2>Cupons Disponíveis</h2>
+                <ul class="cupons-style-link">
+                    <li class="cupons-style-list">20% de desconto na primeira compra - <span>PRIMEIRACOMPRA</span></li>
+                    <li class="cupons-style-list">10% de desconto em compras acima de R$100 - <span>DESCONTO10</span></li>
+                    <li class="cupons-style-list">Frete grátis para compras acima de R$200 - <span>FRETEGRATIS</span></li>
+                </ul>
+            </section> 
+        </li>       
         <li class="topicos-item">
             <a href="#" class="topicos-link">Presente</a>
         </li>
