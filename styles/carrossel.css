@@ -153,15 +153,21 @@ display: none;
 
 .interacoes-produto button {
   margin-right: 10px;
-  padding: 5px 10px;
-  background-color: transparent; /* tornando o botão transparente */
-  color: #007bff; /* cor do texto */
+  padding: 5px;
+  background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  font-size: 14px;
+  max-width: 100px;
 }
 
 .interacoes-produto button:hover {
   background: var(--rosa-4); 
+}
+
+.interacoes-produto button img {
+  width: 20px;
+  height: 20px;
 }
 
 
@@ -228,6 +234,11 @@ display: none;
   text-overflow: ellipsis;
   display: flex;
 }
+.interacoes-produto button img {
+  width: 50px;
+  height: 50px;
+}
+
 }
 
 @media screen and (min-width:1728px)
