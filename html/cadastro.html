@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="shortcut icon" href="/Public/Group 3.svg" type="image/x-icon">
-    <title>Cadastro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="../styles/Login.css">
 </head>
 <body>
-    <header></header>
-    <main>
-        <form id="form" action="http://localhost:3000/cadastro" method="post" enctype="application/x-www-form-urlencoded" >
-            <div class="cabecalho-form">Cadastro</div>
-            <div class="form-esquerda">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" required>
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                <label for="confirmarsenha">Confirme sua senha:</label>
-                <input type="password" name="confirmarsenha" id="confirmarsenha" placeholder="Confirme sua senha" required>
-                <button type="submit">Cadastrar</button>
-            </div>
-            <div class="form-direita">
-                <div class="form-login-rede">
-                    <a href="#" class="facebook">
-                        <i class="fa-brands fa-facebook-f" aria-hidden="true">Facebook</i>
-                    </a>
-                    <a href="#" class="google">
-                        <i class="fa-brands fa-google" aria-hidden="true">Google</i>
-                    </a>
-                    <a href="/html/login.html" class="cadastro">
-                        <i class="fa-brands fa-cadastro" aria-hidden="true">Faça login aqui</i>
-                    </a>
-                </div>
-            </div>
-        </form>
-    </main>
-    <footer class="rodape">
-        <h2 class="rodape-titulo">Grupo Boticário</h2>
-        <p>&copy; 2024 Aline. Todos os direitos reservados.</p>
-    </footer>
-    <script src="/js/cadastro.js"></script>
+  <form id="form">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required>
+    <br>
+    <label for="confirmarSenha">Confirmar Senha:</label>
+    <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+    <br>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <script src="../js/cadastro.js"></script>
 </body>
 </html>
