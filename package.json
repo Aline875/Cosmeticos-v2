@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2",
+    "mongoose": "^8.4.1",
+    "node-cron": "^3.0.3",
     "supertest": "^7.0.0"
   },
   "devDependencies": {

@@ -1,70 +1,105 @@
-
 const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const cron = require('node-cron');
+
 const app = express();
-const port = 3000;
+app.use(bodyParser.json());
+app.use(cors());
 
-app.use(express.json());
-
-app.post('/cadastro', (req, res) => {
-  const { nome, email, senha, confirmarSenha } = req.body;
-
-  if (!nome || !email || !senha || !confirmarSenha) {
-    return res.status(400).json({ mensagem: 'Preencha todos os campos.' });
-  }
-
-  if (senha !== confirmarSenha) {
-    return res.status(400).json({ mensagem: 'As senhas não coincidem.' });
-  }
-
-  console.log('Usuário cadastrado:', { nome, email, senha });
-  res.status(201).json({ mensagem: 'Usuário cadastrado com sucesso!' });
+// Conectar ao MongoDB
+mongoose.connect('mongodb://127.0.0.1:27017/cosmeticos', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Conectado ao MongoDB');
+}).catch((error) => {
+    console.error('Erro ao conectar ao MongoDB', error);
 });
 
 
-app.get('/usuarios', (req, res) => {
-  const usuarios = [
-    { id: 1, nome: 'Aline Beatriz', email: 'aline@email.com' },
-    { id: 2, nome: 'Aline Kessy', email: 'alineKessy@email.com' },
-  ];
-
-  res.status(200).json(usuarios);
+const tarefaSchema = new mongoose.Schema({
+    nome: { type: String, required: true, minlength: 5, maxlength: 50 },
+    descricao: { type: String, maxlength: 140 },
+    finalizada: { type: Boolean, required: true, default: false },
+    dataCriacao: { type: Date, default: Date.now },
+    data_termino: Date,
+    prioridade: { type: String, required: true, enum: ['Baixa', 'Média', 'Alta'], default: 'Baixa' },
+    data_limite: { type: Date, required: true }
 });
 
 
-app.get('/usuarios/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const usuario = { id: 1, nome: 'Aline Beatriz', email: 'aline@email.com' };
+const membroSchema = new mongoose.Schema({
+    nome: { type: String, required: true, minlength: 5 },
+    email: { type: String, required: true, unique: true },
+    senha: { type: String, required: true, minlength: 6 }
+});
 
-  if (!usuario) {
-    return res.status(404).json({ mensagem: 'Usuário não encontrado.' });
-  }
+//const Tarefa = mongoose.model('Tarefa', tarefaSchema);
+const Membro = mongoose.model('Usuário', membroSchema);
 
-  res.status(200).json(usuario);
+
+// app.post('/api/tarefas', async (req, res) => {
+//     try {
+//         const { nome, descricao, finalizada, prioridade, data_limite } = req.body;
+//         const tarefa = new Tarefa({ nome, descricao, finalizada, prioridade, data_limite });
+//         await tarefa.save();
+//         res.status(201).json(tarefa);
+//     } catch (error) {
+//         console.error('Erro ao salvar a tarefa:', error);
+//         res.status(400).json({ error: error.message });
+//     }
+// });
+
+
+app.post('/api/usuario', async (req, res) => {
+    try {
+        const { nome, email, senha } = req.body;
+        const membro = new Membro({ nome, email, senha });
+        await membro.save();
+        res.status(201).json(membro);
+    } catch (error) {
+        console.error('Erro ao salvar o membro:', error);
+        res.status(400).json({ error: error.message });
+    }
 });
 
 
-app.put('/usuarios/:id', (req, res) => {
+app.post('/api/login', async (req, res) => {
+    try {
+        const { email, senha } = req.body;
+        const membro = await Membro.findOne({ email });
 
-  const id = parseInt(req.params.id);
-  const { nome, email } = req.body;
+        if (!membro) {
+            return res.status(400).json({ error: 'Email não encontrado' });
+        }
 
-  if (!nome || !email) {
-    return res.status(400).json({ mensagem: 'Preencha todos os campos.' });
-  }
+        if (membro.senha !== senha) {
+            return res.status(400).json({ error: 'Senha incorreta' });
+        }
 
-  const usuarioAtualizado = { id, nome, email };
-
-  res.status(200).json(usuarioAtualizado);
+        res.status(200).json({ message: 'Login bem-sucedido', nome: membro.nome });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 
-app.delete('/usuarios/:id', (req, res) => {
+// cron.schedule('0 0 * * *', async () => {
+//     const now = new Date();
+//     try {
+//         const tarefas = await Tarefa.find({ finalizada: false, data_limite: { $lt: now } });
+//         for (const tarefa of tarefas) {
+//             tarefa.finalizada = false;
+//             await tarefa.save();
+//         }
+//         console.log('Tarefas atualizadas.');
+//     } catch (error) {
+//         console.error('Erro ao atualizar tarefas:', error);
+//     }
+// });
 
-  const id = parseInt(req.params.id);
-
-  res.status(204).json();
-});
-
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+app.listen(3000, () => {
+    console.log('Server rodando na porta 3000');
 });
