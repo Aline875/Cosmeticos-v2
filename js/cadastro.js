@@ -1,26 +1,36 @@
-function validarCadastro() {
+document.getElementById('form').addEventListener('submit', async function(event) {
+  event.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
-    const confirmaSenha = document.getElementById("confirmarsenha").value;
-    const nome = document.getElementById("nome").value;
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const senha = document.getElementById('senha').value;
+  const confirmarSenha = document.getElementById('confirmarSenha').value;
 
-        localStorage.setItem('cadastroNome', nome);
-        localStorage.setItem('cadastroEmail', email);
-        localStorage.setItem('cadastroSenha', senha);
+  if (senha !== confirmarSenha) {
+      alert('As senhas não coincidem');
+      return;
+  }
 
-    if (nome.trim() === "" || email.trim() === "" || senha.trim() === "" || confirmaSenha.trim() === "") {
-        alert("Por favor, preencha todos os campos.");
-        return false;
-    }
+  const usuario = { nome, email, senha };
 
-    if (senha !== confirmaSenha) {
-        alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
-        return false;
-    }
+  try {
+      const response = await fetch('http://localhost:3000/api/usuario', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(usuario)
+      });
 
-    // Se todas as verificações passarem, exibimos a mensagem de sucesso e permitimos o envio do formulário
-    alert("Usuário cadastrado com sucesso!!");
-    return true;
-}
+      if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error);
+      }
 
+      alert('Usuário cadastrado com sucesso!');
+      window.location.href = '../html/login.html';
+  } catch (error) {
+      console.error('Erro ao cadastrar o usuário:', error);
+      alert(`Erro ao cadastrar o usuário: ${error.message}`);
+  }
+});

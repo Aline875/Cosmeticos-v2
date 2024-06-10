@@ -1,22 +1,35 @@
-function validarLogin() {
-    // Validação dos campos...
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
+document.getElementById('form').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-    // Recuperar os dados de cadastro do localStorage
-    const cadastroEmail = localStorage.getItem('cadastroEmail');
-    const cadastroSenha = localStorage.getItem('cadastroSenha');
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
 
-    console.log("Email cadastrado:", cadastroEmail);
-    console.log("Senha cadastrada:", cadastroSenha);
+    try {
+        const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, senha }),
+        });
 
-    // Verificar se os dados de login correspondem aos dados de cadastro
-    if (email === cadastroEmail && senha === cadastroSenha) {
-        // Login bem-sucedido
-        window.location.href = "/"; // Redireciona para a página principal
-        alert("Login bem-sucedido!");
-    } else {
-        // Credenciais inválidas
-        alert("Credenciais inválidas. Por favor, verifique e tente novamente.");
+        if (!response.ok) {
+            throw new Error('Erro ao fazer login');
+        }
+
+        const data = await response.json();
+        alert(data.message);
+
+        // Redirecionar para a página inicial ou outra página desejada
+        window.location.href = '../index.html';
+
+        // Ou você pode adicionar o link diretamente no DOM após o login bem-sucedido
+        const linkPaginaInicial = document.createElement('a');
+        linkPaginaInicial.href = '../index.html';
+        linkPaginaInicial.textContent = 'Ir para a página inicial';
+        document.body.appendChild(linkPaginaInicial);
+    } catch (error) {
+        document.getElementById('mensagemErro').textContent = error.message;
     }
-}
+    
+});
