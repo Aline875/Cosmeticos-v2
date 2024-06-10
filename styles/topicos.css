@@ -49,6 +49,50 @@
   background: var(--rosa-1);
 }
 
+.hidden {
+  display: none;
+}
+
+.cupons-style-link
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cupons-style-list
+{
+  background: var(--rosa-4);
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cupons-style-list::before 
+{
+  content: '🎁';
+  margin-right: 10px;
+}
+
+.cupons-style-list span {
+  background: var(--rosa-1);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cupons
+{
+  margin-top: 2em;
+}
 
 @media screen and (min-width: 1024px)
 {

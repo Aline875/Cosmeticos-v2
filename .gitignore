@@ -1,0 +1,6 @@
+# Arquivos temporários gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Pasta node_modules
+node_modules/

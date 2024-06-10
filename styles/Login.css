@@ -1,6 +1,6 @@
 #form {
     background: #fff;
-    width: 38em;
+    width: 90%;
     margin: 2em auto;
     overflow: hidden;
     position: relative;
@@ -95,7 +95,13 @@
     text-decoration: none;
     color: inherit;
   }
-  
+
+  .form-direita
+  {
+    width: 30%;
+    padding-right: 2em;
+  }
+
   .form-direita .form-login-rede {
     color: var(--cinza-claro);
     font-size: 1.1em;
