@@ -4,23 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
-  <link rel="stylesheet" href="../styles/Login.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <form id="form">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required>
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <br>
-    <label for="senha">Senha:</label>
-    <input type="password" id="senha" name="senha" required>
-    <br>
-    <label for="confirmarSenha">Confirmar Senha:</label>
-    <input type="password" id="confirmarSenha" name="confirmarSenha" required>
-    <br>
-    <button type="submit">Cadastrar</button>
+  <form id="form" >
+    <div class="cabecalho-form">Cadastro</div>
+      <div class="form-esquerda">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+          <label for="email">Email: </label>
+          <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" required>
+          <label for="senha">Senha: </label>
+          <input type="password" name="senha" id="senha" placeholder="senha" required>
+          <label for="confirmarSenha">Confirmar Senha:</label>
+          <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+          <button type="submit">Cadastrar</button>
+        </div>
+    <div class="form-direita">
+      <div class="form-login-rede">
+          <a href="#" class="facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true">Facebook</i>
+          </a>
+          <a href="#" class="google">
+              <i class="fa-brands fa-google" aria-hidden="true">Google</i>
+          </a>
+          <a href="/html/cadastro.html" class="cadastro">
+              <i class="fa-brands fa-cadastro" aria-hidden="true">Cadastre-se</i>
+          </a>
+      </div>
+  </div>
+
+    
   </form>
 
   <script src="../js/cadastro.js"></script>

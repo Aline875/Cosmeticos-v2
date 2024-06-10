@@ -7,7 +7,8 @@ app.use(express.json());
 app.use(cors());
 
 // Conectar ao MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/cosmeticos', {
+const mongoUrl = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/cosmeticos';
+mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
