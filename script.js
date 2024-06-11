@@ -1,4 +1,3 @@
-
 function validarEmail(email) {
     const validacao = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return validacao.test(email);
