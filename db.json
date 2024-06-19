@@ -1,0 +1,58 @@
+{
+  "produtos": [
+    {
+      "nome": "Nativa SPA Jasmim Sambac",
+      "preco": "R$ 79,90",
+      "imagem": "/Public/O BOTICÁRIO — Pict Estúdio (1).jpg",
+      "descricao": "Loção hidratante corporal com fragrância de Jasmim Sambac."
+    },
+    {
+      "nome": "Malbec Vert",
+      "preco": "R$ 159,90",
+      "imagem": "/Public/O Boticário lança o novo Malbec Vert.jpg",
+      "descricao": "Perfume masculino com fragrância amadeirada."
+    },
+    {
+      "nome": "Egeo Blue",
+      "preco": "R$ 99,90",
+      "imagem": "/Public/Egeo Blue Desodorante Colônia 90ml.jpg",
+      "descricao": "Desodorante colônia com fragrância refrescante."
+    },
+    {
+      "nome": "Arbo Desodorante Colônia",
+      "preco": "R$ 89,90",
+      "imagem": "/Public/download (1).jpg",
+      "descricao": "Desodorante colônia com fragrância energizante."
+    },
+    {
+      "nome": "Nativa SPA Hidratante Ameixa Negra",
+      "preco": "R$ 49,90",
+      "imagem": "/Public/Black Plum Body Lotion 400ml.jpg",
+      "descricao": "Loção hidratante corporal com fragrância de Ameixa Negra."
+    },
+    {
+      "nome": "Kit presente dia das mães",
+      "preco": "R$ 79,90",
+      "imagem": "https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_210,h_210/v1/imagens/product/B56147/f0383cf7-4150-4fa6-8ec6-cd1777ea3236-bot-56147-celebre-kit-maes-24-frontal-01.jpg",
+      "descricao": "Kit de presente especial para o dia das mães."
+    },
+    {
+      "nome": "Combo Match ciencia das curvas",
+      "preco": "R$ 129,90",
+      "imagem": "https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_210,h_210/v1/imagens/product/B2024030407/c0df5df8-fb89-4f38-89bf-0ff50d1a9d6c-bot-2024030407-match-ciencia-das-curvas-shampoo-condicionador-creme-pentear-mascara-capilar-2abc-3abc-jelly-capilar.jpg",
+      "descricao": "Combo de produtos para cuidado capilar."
+    },
+    {
+      "nome": "Lily Lumière Eau de Parfum",
+      "preco": "R$ 199,90",
+      "imagem": "https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_210,h_210/v1/imagens/products/B77989/LILY_EDP_LUMIERE_75ml_B77989.jpg",
+      "descricao": "Perfume feminino sofisticado e elegante."
+    },
+    {
+      "nome": "Vanilla vibe desodorante",
+      "preco": "R$ 89,90",
+      "imagem": "/Public/a52d15f2-7a96-4a8e-a2ef-404aecdf582b-egeo-original-o-boticario-desodorante-colonia-masculino-90ml.webp",
+      "descricao": "Desodorante com fragrância de baunilha."
+    }
+  ]
+}

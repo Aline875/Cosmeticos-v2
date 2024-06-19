@@ -62,11 +62,11 @@
 .cupons-style-list {
   background: var(--rosa-4);
   border: 1px solid #ddd;
-  margin: 5px 0; /* Reduz a margem superior e inferior */
-  padding: 5px; /* Reduz o espaçamento interno */
+  margin: 5px 0; 
+  padding: 5px; 
   border-radius: 5px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 14px; /* Reduz o tamanho da fonte */
+  font-size: 14px;
   color: #333;
   display: flex;
   justify-content: space-between;
@@ -87,7 +87,7 @@
 }
 
 .cupons {
-  margin-top: 1em; /* Reduz a margem superior da seção de cupons */
+  margin-top: 1em; 
 }
 @media screen and (min-width: 1024px)
 {
