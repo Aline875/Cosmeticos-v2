@@ -1,11 +1,12 @@
-#form {
-    background: #fff;
+.formulario {
+    background: var(--rosa-degrade-2);
     width: 90%;
     margin: 2em auto;
     overflow: hidden;
     position: relative;
     border-radius: 0.3em;
     justify-content: center;
+    border: solid var(--cinza-claro);
   }
 
 .form-esquerda,
@@ -14,11 +15,6 @@
      width: 100%; 
      float: none; 
  }
-  
-.form-esquerda 
-{
-    padding: 0; 
-}
   
 .form-direita .form-login-rede 
     {
@@ -41,12 +37,15 @@
     width: 40%;
     float: left;
     padding-left: 2em; 
+    padding: 0;
+    display: table-column;
 }
   
 .form-direita 
 {
     width: 40%;
     float: right;
+    display: table-column;
 }
   
 .form-esquerda label 
