@@ -51,13 +51,20 @@ function exibirCosmeticos() {
 
     // Adicionar eventos de clique após renderizar os elementos
     document.querySelectorAll('.btn-curtir').forEach(function (botao) {
+        let curtido = false; // Variável para armazenar o estado do curtir
+
         botao.addEventListener('click', function () {
             const imagemFavorito = botao.querySelector('img');
-            if (imagemFavorito.src.includes('/Public/icons8-coração-cheio-32.png')) {
+
+            // Alternar entre os ícones de acordo com o estado
+            if (curtido) {
                 imagemFavorito.src = '/Public/icons8-gostar-32.png';
             } else {
                 imagemFavorito.src = '/Public/icons8-coração-cheio-32.png';
             }
+
+            // Atualizar o estado do curtir
+            curtido = !curtido;
         });
     });
 }
