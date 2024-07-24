@@ -23,7 +23,17 @@ const usuarioSchema = new mongoose.Schema({
     senha: { type: String, required: true, minlength: 6 }
 });
 
+const revendedorSchema = new mongoose.Schema({
+    nome: { type: String, required: true, minlength: 5 },
+    email: { type: String, required: true, unique: true },
+    senha: { type: String, required: true, minlength: 6 },
+    cpf: { type: String, required: true, unique: true },
+    telefone: { type: String, required: true, unique: true },
+    aniversario: { type: Date, required: true }
+});
+
 const Usuario = mongoose.model('Usuario', usuarioSchema);
+const Revendedor = mongoose.model('Revendedor', revendedorSchema);
 
 app.post('/api/usuario', async (req, res) => {
     try {
@@ -53,6 +63,18 @@ app.post('/api/login', async (req, res) => {
         res.status(200).json({ message: 'Login bem-sucedido', nome: usuario.nome });
     } catch (error) {
         res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/api/revendedor', async (req, res) => {
+    try {
+        const { nome, email, senha, cpf, telefone, aniversario } = req.body;
+        const revendedor = new Revendedor({ nome, email, senha, cpf, telefone, aniversario });
+        await revendedor.save();
+        res.status(201).json(revendedor);
+    } catch (error) {
+        console.error('Erro ao salvar o revendedor:', error);
+        res.status(400).json({ error: error.message });
     }
 });
 

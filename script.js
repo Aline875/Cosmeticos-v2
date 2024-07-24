@@ -22,7 +22,7 @@ function exibirCosmeticos() {
 
     cosmeticos.forEach((cosmetico, index) => {
         const template = `
-        <div class="swiper-slide swiper-card">
+        <div class="swiper-slide swiper-card ">
             <img src="${cosmetico.imagem}" alt="${cosmetico.nome}">
             <div class="produto-info">
                 <p class="produto-nome">${cosmetico.nome}</p>
@@ -41,7 +41,8 @@ function exibirCosmeticos() {
             </div>
         </div>`;
 
-        // Distribuir os produtos entre os carrosséis
+//Divindindo os carrosseis
+
         if (index % 2 === 0) {
             carrossel1.innerHTML += template;
         } else {
@@ -49,21 +50,16 @@ function exibirCosmeticos() {
         }
     });
 
-    // Adicionar eventos de clique após renderizar os elementos
+    // Adicionando o botão curtir
     document.querySelectorAll('.btn-curtir').forEach(function (botao) {
-        let curtido = false; // Variável para armazenar o estado do curtir
-
+        let curtido = false; //Iniciamos o botão como falso para que ele só se mostre curtido após o clique
         botao.addEventListener('click', function () {
             const imagemFavorito = botao.querySelector('img');
-
-            // Alternar entre os ícones de acordo com o estado
             if (curtido) {
                 imagemFavorito.src = '/Public/icons8-gostar-32.png';
             } else {
                 imagemFavorito.src = '/Public/icons8-coração-cheio-32.png';
             }
-
-            // Atualizar o estado do curtir
             curtido = !curtido;
         });
     });
@@ -84,10 +80,9 @@ function cadastrarEmail() {
     }
 }
 
+//Cupons
 document.addEventListener('DOMContentLoaded', function () {
     buscarCosmeticosApi();
-
-    // Adicionar evento de clique para mostrar ou ocultar os cupons
     document.querySelector('.topicos-link.cupons').addEventListener('click', function (event) {
         event.preventDefault();
         document.getElementById('cupons').classList.toggle('hidden');

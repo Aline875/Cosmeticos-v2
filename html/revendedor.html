@@ -6,32 +6,51 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../reset.css">
     <link rel="shortcut icon" href="/Public/Group 3.svg" type="image/x-icon">
-    <title>Document</title>
+    <title>Página do Revendedor</title>
+    <script type="module" src="../js/cadastro-revendedor.js"></script>
 </head>
 <body>
-    <form id="form" class="formulario" onsubmit="return validatePassword()">
+    <form id="form" class="formulario" onsubmit="return validatePassword()" data-formulario>
         <div class="form-imagem">
             <img src="../Public/3345852.jpg" alt="Imagem do Cadastro">
         </div>
         <div class="cabecalho-form">Cadastro do revendedor</div>
-        <div class="form-esquerda">
+        <fieldset>
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+            <input type="text" id="nome" name="nome" placeholder="Nome completo" required autocomplete="name"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <fieldset>
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="XXX.XXX.XXX-XX" required>
-            <label for="nascimento">Data de Nascimento:</label>
-            <input type="date" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa" required>
+            <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="XXX.XXX.XXX-XX" required autocomplete="cpf"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <fieldset>
+            <label for="aniversario">Data de Nascimento:</label>
+            <input type="date" id="aniversario" name="aniversario" required autocomplete="bdate"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <fieldset>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" required>
-            <label for="celular">Celular:</label>
-            <input type="tel" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required>
+            <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" required autocomplete="email"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <fieldset>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required autocomplete="tel"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <fieldset>
             <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+            <input type="password" name="senha" id="senha" placeholder="Senha" required autocomplete="new-password"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <fieldset>
             <label for="confirmarSenha">Confirmar Senha:</label>
-            <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required>
-            <button type="submit">Cadastrar</button>
-        </div>
-    </form>
+            <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required autocomplete="new-password"/>
+            <span class="mensagem-erro"></span>
+        </fieldset>
+        <button type="submit">Cadastrar</button>
     </form>
 </body>
 </html>
