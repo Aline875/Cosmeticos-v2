@@ -1,0 +1,24 @@
+{
+  "name": "cosmeticos-v2",
+  "version": "1.0.0",
+  "description": "Bem-vindo à Loja de Beleza! Este é um site para compra de cosméticos de alta qualidade.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "json-server": "^1.0.0-beta.1",
+    "mongoose": "^8.4.1",
+    "node-cron": "^3.0.3",
+    "supertest": "^7.0.0"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0"
+  }
+}
