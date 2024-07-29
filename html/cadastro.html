@@ -5,27 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="shortcut icon" href="/Public/Group 3.svg" type="image/x-icon">
 </head>
 <body>
-  <form id="form">
-    <div class="cabecalho-form">
-      Cadastro
-    </div>
-    <div class="form-esquerda">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" required>
-      <label for="confirmarSenha">Confirmar Senha:</label>
-      <input type="password" id="confirmarSenha" name="confirmarSenha" required>
-      <button type="submit">Cadastrar</button>
-    </div>
+  <form id="form" class="formulario">
+    <div class="cabecalho-form">Cadastro</div>
+      <div class="form-esquerda">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Nome" required>
+          <label for="email">Email: </label>
+          <input type="email" name="email" id="email" placeholder="Exemplo@gmail.com" required>
+          <label for="senha">Senha: </label>
+          <input type="password" name="senha" id="senha" placeholder="Senha" required>
+          <label for="confirmarSenha">Confirmar Senha:</label>
+          <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required>
+          <button type="submit">Cadastrar</button>
+        </div>
     <div class="form-direita">
       <div class="form-login-rede">
-        Ou cadastre-se com
+          <a href="#" class="facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true">Facebook</i>
+          </a>
+          <a href="#" class="google">
+              <i class="fa-brands fa-google" aria-hidden="true">Google</i>
+          </a>
+          <a href="/html/login.html" class="cadastro">
+              <i class="fa-brands fa-cadastro" aria-hidden="true">Login</i>
+          </a>
       </div>
+  <div>
+
       <a href="#" class="facebook">Facebook</a>
       <a href="#" class="google">Google</a>
       <a href="./login.html" class="cadastro">Login</a>

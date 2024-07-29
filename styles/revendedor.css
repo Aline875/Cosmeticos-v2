@@ -1,0 +1,45 @@
+.form-campo, fieldset {
+    margin-bottom: 15px;
+}
+
+button[type="submit"] 
+{
+    background: var(--rosa-5);
+    color: var(--branco);
+    outline: none;
+    padding: 1em;
+    overflow: hidden;
+    border: none;
+    letter-spacing: 0.1em;
+    margin: 0.5em 0;
+    border-radius: 0.4em;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  button[type = "submit"]:hover
+  {
+      background-color: var(--rosa-3);
+      color: var(--preto);
+  }
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="date"]
+{
+    border: 0.1em solid var(--preto);
+    padding: 1em;
+    margin: 0.6em 0;
+    max-width: 100%;
+    outline: none;
+    border-radius: 4px;
+  }
+
+  label 
+{
+    display: block;
+    color: var(--cinza-claro);
+    font-size: 1.1em;
+    margin-top: 0.6em;
+}

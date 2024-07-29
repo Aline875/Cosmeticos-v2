@@ -7,7 +7,8 @@ app.use(express.json());
 app.use(cors());
 
 // Conectar ao MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/cosmeticos', {
+const mongoUrl = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/cosmeticos';
+mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -22,7 +23,17 @@ const usuarioSchema = new mongoose.Schema({
     senha: { type: String, required: true, minlength: 6 }
 });
 
+const revendedorSchema = new mongoose.Schema({
+    nome: { type: String, required: true, minlength: 5 },
+    email: { type: String, required: true, unique: true },
+    senha: { type: String, required: true, minlength: 6 },
+    cpf: { type: String, required: true, unique: true },
+    telefone: { type: String, required: true, unique: true },
+    aniversario: { type: Date, required: true }
+});
+
 const Usuario = mongoose.model('Usuario', usuarioSchema);
+const Revendedor = mongoose.model('Revendedor', revendedorSchema);
 
 app.post('/api/usuario', async (req, res) => {
     try {
@@ -36,16 +47,29 @@ app.post('/api/usuario', async (req, res) => {
     }
 });
 
+app.post('/api/revendedor', async (req, res) => {
+    try {
+        const { nome, email, senha, cpf, telefone, aniversario } = req.body;
+        const revendedor = new Revendedor({ nome, email, senha, cpf, telefone, aniversario });
+        await revendedor.save();
+        res.status(201).json(revendedor);
+    } catch (error) {
+        console.error('Erro ao salvar o revendedor:', error);
+        res.status(400).json({ error: error.message });
+    }
+});
+
 app.post('/api/login', async (req, res) => {
     try {
         const { email, senha } = req.body;
         const usuario = await Usuario.findOne({ email });
+        const revendedor = await Revendedor.findOne({ email });
 
-        if (!usuario) {
+        if (!usuario || !revendedor) {
             return res.status(400).json({ error: 'Email não encontrado' });
         }
 
-        if (usuario.senha !== senha) {
+        if (usuario.senha !== senha || revendedor.senha !== senha) {
             return res.status(400).json({ error: 'Senha incorreta' });
         }
 
@@ -54,6 +78,8 @@ app.post('/api/login', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');

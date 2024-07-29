@@ -53,30 +53,27 @@
   display: none;
 }
 
-.cupons-style-link
-{
+.cupons-style-link {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.cupons-style-list
-{
+.cupons-style-list {
   background: var(--rosa-4);
   border: 1px solid #ddd;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 5px 0; 
+  padding: 5px; 
   border-radius: 5px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.cupons-style-list::before 
-{
+.cupons-style-list::before {
   content: '🎁';
   margin-right: 10px;
 }
@@ -89,11 +86,9 @@
   color: #333;
 }
 
-.cupons
-{
-  margin-top: 2em;
+.cupons {
+  margin-top: 1em; 
 }
-
 @media screen and (min-width: 1024px)
 {
   .topicos-titulo
