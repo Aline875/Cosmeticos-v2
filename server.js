@@ -47,25 +47,6 @@ app.post('/api/usuario', async (req, res) => {
     }
 });
 
-app.post('/api/login', async (req, res) => {
-    try {
-        const { email, senha } = req.body;
-        const usuario = await Usuario.findOne({ email });
-
-        if (!usuario) {
-            return res.status(400).json({ error: 'Email não encontrado' });
-        }
-
-        if (usuario.senha !== senha) {
-            return res.status(400).json({ error: 'Senha incorreta' });
-        }
-
-        res.status(200).json({ message: 'Login bem-sucedido', nome: usuario.nome });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
 app.post('/api/revendedor', async (req, res) => {
     try {
         const { nome, email, senha, cpf, telefone, aniversario } = req.body;
@@ -77,6 +58,28 @@ app.post('/api/revendedor', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+app.post('/api/login', async (req, res) => {
+    try {
+        const { email, senha } = req.body;
+        const usuario = await Usuario.findOne({ email });
+        const revendedor = await Revendedor.findOne({ email });
+
+        if (!usuario || !revendedor) {
+            return res.status(400).json({ error: 'Email não encontrado' });
+        }
+
+        if (usuario.senha !== senha || revendedor.senha !== senha) {
+            return res.status(400).json({ error: 'Senha incorreta' });
+        }
+
+        res.status(200).json({ message: 'Login bem-sucedido', nome: usuario.nome });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
