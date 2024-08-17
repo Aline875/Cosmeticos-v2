@@ -3,19 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
+    <title>Blush - Cosméticos</title>
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../styles/blush.css">
-    <script src="../js/blush.js" defer></script>
     <link rel="shortcut icon" href="/Public/Group 3.svg" type="image/x-icon">
+    <script src="../js/blush.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Blush</h1>
+    <!--header.css-->
+    <header class="cabecalho">
+        <div class="container">
+            <input type="checkbox" id="menu" class="botao-container">
+            <label for="menu" class="container-rotulo">
+                <span class="menu-hamburguer imagem-container"></span>
+            </label>
+            <ul class="lista-menu">
+                <li class="lista-menu-titulo">Categorias</li>
+                <li class="lista-menu-item"><a href="#" class="lista-menu-link">Skin-care</a></li>
+                <li class="lista-menu-item"><a href="#" class="lista-menu-link">Corpo e Banho</a></li>
+                <li class="lista-menu-item"><a href="#" class="lista-menu-link">Perfumes</a></li>
+                <li class="lista-menu-item"><a href="#" class="lista-menu-link">Blog</a></li>
+            </ul>
+        </div>
+        <div class="logo">
+            <img data-src="/Public/Group 3.svg" alt="Logo" class="lazy">
+        </div>
+        <input type="search" class="banner-pesquisa-1" placeholder="O que você procura hoje?">
+        <div class="container">
+            <a href="#"><img class="lazy" data-src="/Public/icons8-gostar-32.png" alt="Meus favoritos" class="imagem-container container-coracao"></a>
+            <a href="#" class="container-link"><img class="lazy" data-src="/Public/icons8-vender-estoque-32.png" alt="Carrinho de compras" class="imagem-container"></a>
+            <a href="/html/login.html" class="container-link"><img class="lazy" data-src="/Public/icons8-conta-de-teste-32.png" alt="Meu Perfil" class="imagem-container"></a>
+        </div>
     </header>
+    <!--header.css-->
+
     <main>
-        <div id="product-list"></div>
+        <section class="topicos">
+            <h1>Blush</h1>
+            <p class="topicos-descricao">Explore nossa linha de blushes para todos os tons de pele.</p>
+            <ul class="topicos-lista">
+                <li class="topicos-item"><a href="./blush.html" id="filter-blush" class="topicos-link">Blush</a></li>
+                <li class="topicos-item"><a href="./batom.html" id="filter-batom" class="topicos-link">Batom</a></li>
+                <li class="topicos-item"><a href="../index.html"  class="topicos-link">Home</a></li>
+            </ul>
+        </section>
+
+        <!-- Lista de Produtos -->
+        <section class="product-section">
+            <div id="product-list" class="product-list"></div>
+        </section>
     </main>
+
+    <footer class="rodape">
+        <h2 class="rodape-titulo">Grupo Boticário</h2>
+        <p>&copy; 2024 Aline. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
