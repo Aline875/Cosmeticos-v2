@@ -104,11 +104,21 @@
 .swiper-card
 {
   background: var(--branco);
-  border-radius: 30px;
+  border:2px solid black;
   margin: 1em;
   align-items: center;
   justify-content: center;
   display: flex;
+
+}
+/*batom*/
+.decricao-produto{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 4.5em;
 }
 
 .swiper-texto
@@ -240,6 +250,20 @@ display: none;
 }
 
 }
+
+.lazy {
+  filter: blur(10px);
+  transition: filter 0.3s;
+}
+
+.lazy:not([src]) {
+  visibility: hidden;
+}
+
+img:not(.lazy) {
+  filter: blur(0);
+}
+
 
 @media screen and (min-width:1728px)
 {
