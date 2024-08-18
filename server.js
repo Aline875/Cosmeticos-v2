@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const uri = "mongodb+srv://alinebeatriz875:f19hrNFLYDgQdZX6@cluster0.fern3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri ="mongodb+srv://alinebeatriz875:f19hrNFLYDgQdZX6@cluster0.fern3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 
 const client = new MongoClient(uri, {
@@ -30,17 +30,22 @@ async function run() {
 
     // Rotas
     app.post('/api/usuario', async (req, res) => {
-      try {
-        const { nome, email, senha } = req.body;
-        const usuario = { nome, email, senha };
-        const result = await usuariosCollection.insertOne(usuario);
-        res.status(201).json(result.ops[0]);
-      } catch (error) {
-        console.error('Erro ao salvar o usuário:', error);
-        res.status(400).json({ error: error.message });
-      }
+        try {
+            const { nome, email, senha } = req.body;
+    
+            if (!nome || !email || !senha) {
+                return res.status(400).json({ error: 'Nome, email e senha são obrigatórios' });
+            }
+    
+            const usuario = new Usuario({ nome, email, senha });
+            await usuario.save();
+            res.status(201).json(usuario);
+        } catch (error) {
+            console.error('Erro ao salvar o usuário:', error);
+            res.status(400).json({ error: error.message });
+        }
     });
-
+    
     app.post('/api/revendedor', async (req, res) => {
       try {
         const { nome, email, senha, cpf, telefone, aniversario } = req.body;
