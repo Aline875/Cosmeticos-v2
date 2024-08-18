@@ -10,8 +10,8 @@ A AG Cosméticos é uma loja virtual que oferece uma ampla variedade de produtos
 - Catálogo de produtos organizado por categorias, facilitando a busca e a descoberta de novos itens.
 - Páginas individuais de produto com detalhes, imagens e opções de compra.
 - Formulário de cadastro para novos clientes.
-- Sistema de login para clientes registrados, permitindo acesso a histórico de pedidos e informações de perfil.
-- Possibilidade de aplicação de cupons de desconto durante o processo de compra.
+- Sistema de login para clientes registrados.
+- Campo de cupons e registro de novos contribuidores/revendedores.
 
 ## Observação 
 Este repositório é voltado apenas para estudos e práticas de desenvolvimento web.
@@ -21,6 +21,12 @@ Este repositório é voltado apenas para estudos e práticas de desenvolvimento 
 - CSS3
 - JavaScript
 
+## Bibliotecas utilizadas
+- Express
+- Cors
+- Mongoose
+
+
 ## Autor
 Nome: Aline Beatriz
 Contato: alinebeatriz875@gmail.com
@@ -29,6 +35,7 @@ Contato: alinebeatriz875@gmail.com
 1. Clone o repositório: `git clone https://github.com/Aline875/Cosmeticos-v2.git`
 2. Navegue até o diretório do projeto: `cd nome-do-repositorio`
 3. Abra o arquivo `index.html` em seu navegador preferido.
+4.
 
 ## Pode acessar o projeto em 
 cosmeticos-v2.vercel.app
