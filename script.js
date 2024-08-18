@@ -1,6 +1,7 @@
 let cosmeticos = [];
 
 const Api = 'https://makeup-api.herokuapp.com/api/v1/products.json';
+
 async function buscarCosmeticosApi() {
     try {
         const res = await fetch(Api);
@@ -9,12 +10,14 @@ async function buscarCosmeticosApi() {
         }
         const data = await res.json();
 
-        // Mapeando os dados da nova API para o formato esperado
-        cosmeticos = data.map(product => ({
-            nome: product.name,
-            imagem: product.image_link,
-            preco: product.price ? `$${product.price}` : 'Preço não disponível'
-        }));
+        // Filtrando produtos com preço igual ou superior a 5.0
+        cosmeticos = data
+            .filter(product => parseFloat(product.price) >= 5.0)
+            .map(product => ({
+                nome: product.name,
+                imagem: product.image_link,
+                preco: product.price ? `$${product.price}` : 'Preço não disponível'
+            }));
 
         exibirCosmeticos();
     } catch (error) {
@@ -99,3 +102,23 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('cupons').classList.toggle('hidden');
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const lazyImages = document.querySelectorAll("img.lazy");
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const image = entry.target;
+                image.src = image.dataset.src;
+                image.classList.remove("lazy");
+                observer.unobserve(image);
+            }
+        });
+    });
+
+    lazyImages.forEach(image => {
+        imageObserver.observe(image);
+    });
+});
+

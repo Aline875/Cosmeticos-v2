@@ -1,12 +1,11 @@
 let cosmeticos = [];
 
-const Apiblush = 'https://makeup-api.herokuapp.com/api/v1/products.json?product_type=blush';
+const Apibatom = 'https://makeup-api.herokuapp.com/api/v1/products.json?product_type=lipstick';
 
 async function fetchProducts() {
     try {
-        const response = await fetch(Apiblush);
+        const response = await fetch(Apibatom);
         
-       
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -21,18 +20,11 @@ async function fetchProducts() {
     }
 }
 
-
 function displayProducts(products) {
     const productList = document.getElementById('product-list');
     productList.innerHTML = ''; 
 
-    
-    const limitedProducts = products.slice(0, 20); 
-
-    limitedProducts.forEach(product => {
-        console.log(product); 
-        
-        
+    products.forEach(product => {
         const productDiv = document.createElement('div');
         productDiv.classList.add('product-item'); 
 
@@ -69,8 +61,4 @@ function displayProducts(products) {
         });
     });
 }
-
-
-
-
 window.onload = fetchProducts;

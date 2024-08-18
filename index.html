@@ -38,13 +38,13 @@
     </ul>
     </div>
     <div class="logo">
-        <img src="/Public/Group 3.svg" alt="Logo"> 
+        <img data-src="/Public/Group 3.svg" alt="Logo" class="lazy"> 
     </div>
     <div class="logo-2">
-        <img src="/Public/Group 5.2.svg"" alt="Logo"> 
+        <img data-src="/Public/Group 5.2.svg"" alt="Logo" class="lazy"> 
     </div>
     <div class="logo-3">
-        <img src="/Public/Group 5.2.svg" alt="Logo"> 
+        <img data-src="/Public/Group 5.2.svg" alt="Logo" class="lazy"> 
     </div>
     <input type="search" class="banner-pesquisa-1" placeholder="O que você procura hoje?">
     <h1 class="container-titulo"><b class="container-titulo-bold"></h1>
@@ -68,7 +68,7 @@
         <a href="#" class="lista-menu-link">Perfumes</a>
     </li>
     <li class="lista-menu-item">
-     <a href="#" class="lista-menu-link">Blog</a>
+     <a href="./html/blog.html" class="lista-menu-link">Blog</a>
  </li>
      </ul>
      <li class="opcoes-item"><a href="#" class="opcoes-link">Favoritos</a></li>
@@ -77,10 +77,10 @@
     </ul>
  <a href="#" class="opcoes-link"></a> 
    <div class="container">
-        <a href="#"><img src="/Public/icons8-gostar-32.png" alt="Meus favoritos" class="imagem-container container-coracao"></a>
-        <a href="# " class="container-link"><img src="/Public/icons8-vender-estoque-32.png" alt="Carrinho de compras" class="imagem-container">
+        <a href="#"><img class="lazy" data-src="/Public/icons8-gostar-32.png" alt="Meus favoritos" class="imagem-container container-coracao"></a>
+        <a href="# " class="container-link"><img class="lazy" data-src="/Public/icons8-vender-estoque-32.png" alt="Carrinho de compras" class="imagem-container">
         </a>
-        <a href="/html/login.html" class="container-link"><img src="/Public/icons8-conta-de-teste-32.png" alt="Meu Perfil" class="imagem-container">
+        <a href="/html/login.html" class="container-link"><img class="lazy" data-src="/Public/icons8-conta-de-teste-32.png" alt="Meu Perfil" class="imagem-container">
         </a>
     </div>
     </header>
@@ -98,15 +98,18 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                   <!-- Slides -->
-                  <div class="swiper-slide "><img src="/Public/Group 1.svg" alt="Nativa spa jasmin Sambac"></div>
-                  <div class="swiper-slide "><img src="/Public/Profile banner - 1.svg" alt="Malbec Vert"></div> 
-                  <div class="swiper-slide "><img src="/Public/Gree 2.svg" alt="Egeo Blue"></div> 
+                  <div class="swiper-slide "><img class="lazy" data-src="/Public/Group 1.svg" alt="Nativa spa jasmin Sambac"></div>
+                  <div class="swiper-slide "><img class="lazy" data-src="/Public/Profile banner - 1.svg" alt="Malbec Vert"></div> 
+                  <div class="swiper-slide "><img class="lazy" data-src="/Public/Gree 2.svg" alt="Egeo Blue"></div> 
                 </div>
         </section>
         <!--banner.css-->
-
-        <section>
-            <a href="./html/blush.html" id="filter-blush" class="botao-blush">Ver Blush</a>
+        <section class="topicos">
+            <ul class="topicos-lista">
+                <li class="topicos-item" ><a href="./html/blush.html" id="filter-blush" class="topicos-link">Blush</a></li>
+                <li class="topicos-item" ><a href="./html/Batom.html" id="filter-batom" class="topicos-link">Batom</a></li>
+                <li class="topicos-item"><a href="./html/Base.html" id="filter-batom" class="topicos-link">Base</a></li>
+            </ul>
         </section>
         <!----------------------------------------------------------------------------->
         <!--carrossel.css-->
@@ -125,6 +128,7 @@
             </div>
         </section>
   <!--1ª linha-->
+
   <div class="card">
     <!--1ª coluna-->
     <div class="card-descricao">
@@ -136,13 +140,13 @@
             </p>
         </div>
         <!--2ª coluna-->
-        <img src="/Public/download (2).jpg"class="descricao-imagem" alt="hidratantes da linha nuvem">
+        <img data-src="/Public/download (2).jpg"class="descricao-imagem lazy" alt="hidratantes da linha nuvem">
     </div>
     <!--2ª linha-->
     <div class="card-botoes">
        <ul class="botoes">
-        <li class="botoes-item btn-curtir"><img src="/Public/icons8-gostar-32.png" alt="Favoritar livro"></li>
-        <li class="botoes-item"><img src="/Public/icons8-vender-estoque-32.png" alt="Adicionar ao carrinho"></li>
+        <li class="botoes-item btn-curtir"><img class="lazy" data-src="/Public/icons8-gostar-32.png" alt="Favoritar livro"></li>
+        <li class="botoes-item"><img class="lazy" data-src="/Public/icons8-vender-estoque-32.png" alt="Adicionar ao carrinho"></li>
        </ul>
        <!--2ª coluna-->
        <a href="#" class="botoes-ancora">Saiba mais</a>
@@ -169,7 +173,7 @@
   <!--1ª linha-->
   <div class="card">
     <!--1ª coluna-->
-    <img src="/Public/Estrelinhas.svg" alt="estrelas de satisfação do cliente">
+    <img class="lazy" data-src="/Public/Estrelinhas.svg" alt="estrelas de satisfação do cliente">
     <div class="card-descricao">
         <div class="descricao">
             <h3 class="descricao-titulo">Lançamento</h3>
@@ -177,13 +181,13 @@
             <p class="descricao-texto">Novo lançamento Egeo e.joy traz uma fragancia...Em edição limitada, o segredo está na vibração única do ativo Joy Effect, com Taurina e Ginseng, para curtir a vida com muita cor, ritmo e energia.  </p>
         </div>
         <!--2ª coluna-->
-        <img src="/Public/Egeo E_Joy Desodorante Colônia 90ml.jpg" class="descricao-imagem" alt="Novo egeo E-joy">
+        <img  data-src="/Public/Egeo E_Joy Desodorante Colônia 90ml.jpg" class="descricao-imagem lazy" alt="Novo egeo E-joy">
     </div>
     <!--2ª linha-->
     <div class="card-botoes">
        <ul class="botoes">
-        <li class="botoes-item btn-curtir"><img src="/Public/icons8-gostar-32.png" alt="Favoritar"></li>
-        <li class="botoes-item"><img src="/Public/icons8-vender-estoque-32.png" alt="Adicionar ao carrinho"></li>
+        <li class="botoes-item btn-curtir"><img class="lazy" data-src="/Public/icons8-gostar-32.png" alt="Favoritar"></li>
+        <li class="botoes-item"><img class="lazy" data-src="/Public/icons8-vender-estoque-32.png" alt="Adicionar ao carrinho"></li>
        </ul>
        <!--2ª coluna-->
        <a href="#" class="botoes-ancora">Saiba mais</a>
