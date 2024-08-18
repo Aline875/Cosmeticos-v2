@@ -1,86 +1,86 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const cors = require('cors');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Conectar ao MongoDB
-const mongoUrl = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/cosmeticos';
-mongoose.connect(mongoUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('Conectado ao MongoDB');
-}).catch((error) => {
-    console.error('Erro ao conectar ao MongoDB', error);
+const uri = "mongodb+srv://alinebeatriz875:f19hrNFLYDgQdZX6@cluster0.fern3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
 });
 
-const usuarioSchema = new mongoose.Schema({
-    nome: { type: String, required: true, minlength: 5 },
-    email: { type: String, required: true, unique: true },
-    senha: { type: String, required: true, minlength: 6 }
-});
+async function run() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+    console.log("Conectado ao MongoDB Atlas");
 
-const revendedorSchema = new mongoose.Schema({
-    nome: { type: String, required: true, minlength: 5 },
-    email: { type: String, required: true, unique: true },
-    senha: { type: String, required: true, minlength: 6 },
-    cpf: { type: String, required: true, unique: true },
-    telefone: { type: String, required: true, unique: true },
-    aniversario: { type: Date, required: true }
-});
+    // Schemas
+    const database = client.db('cosmeticos');
+    const usuariosCollection = database.collection('usuarios');
+    const revendedoresCollection = database.collection('revendedores');
 
-const Usuario = mongoose.model('Usuario', usuarioSchema);
-const Revendedor = mongoose.model('Revendedor', revendedorSchema);
-
-app.post('/api/usuario', async (req, res) => {
-    try {
+    // Rotas
+    app.post('/api/usuario', async (req, res) => {
+      try {
         const { nome, email, senha } = req.body;
-        const usuario = new Usuario({ nome, email, senha });
-        await usuario.save();
-        res.status(201).json(usuario);
-    } catch (error) {
+        const usuario = { nome, email, senha };
+        const result = await usuariosCollection.insertOne(usuario);
+        res.status(201).json(result.ops[0]);
+      } catch (error) {
         console.error('Erro ao salvar o usuário:', error);
         res.status(400).json({ error: error.message });
-    }
-});
+      }
+    });
 
-app.post('/api/revendedor', async (req, res) => {
-    try {
+    app.post('/api/revendedor', async (req, res) => {
+      try {
         const { nome, email, senha, cpf, telefone, aniversario } = req.body;
-        const revendedor = new Revendedor({ nome, email, senha, cpf, telefone, aniversario });
-        await revendedor.save();
-        res.status(201).json(revendedor);
-    } catch (error) {
+        const revendedor = { nome, email, senha, cpf, telefone, aniversario };
+        const result = await revendedoresCollection.insertOne(revendedor);
+        res.status(201).json(result.ops[0]);
+      } catch (error) {
         console.error('Erro ao salvar o revendedor:', error);
         res.status(400).json({ error: error.message });
-    }
-});
+      }
+    });
 
-app.post('/api/login', async (req, res) => {
-    try {
+    app.post('/api/login', async (req, res) => {
+      try {
         const { email, senha } = req.body;
-        const usuario = await Usuario.findOne({ email });
-        const revendedor = await Revendedor.findOne({ email });
+        const usuario = await usuariosCollection.findOne({ email });
+        const revendedor = await revendedoresCollection.findOne({ email });
 
-        if (!usuario || !revendedor) {
-            return res.status(400).json({ error: 'Email não encontrado' });
+        if (!usuario && !revendedor) {
+          return res.status(400).json({ error: 'Email não encontrado' });
         }
 
-        if (usuario.senha !== senha || revendedor.senha !== senha) {
-            return res.status(400).json({ error: 'Senha incorreta' });
+        if ((usuario && usuario.senha !== senha) || (revendedor && revendedor.senha !== senha)) {
+          return res.status(400).json({ error: 'Senha incorreta' });
         }
 
-        res.status(200).json({ message: 'Login bem-sucedido', nome: usuario.nome });
-    } catch (error) {
+        const nome = usuario ? usuario.nome : revendedor.nome;
+        res.status(200).json({ message: 'Login bem-sucedido', nome });
+      } catch (error) {
         res.status(500).json({ error: error.message });
-    }
-});
+      }
+    });
 
+    
+    app.listen(3000, () => {
+      console.log('Servidor rodando na porta 3000');
+    });
+    
+  } finally {
+  }
+}
 
-
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
-});
+run().catch(console.dir);
