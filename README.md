@@ -42,4 +42,4 @@ cosmeticos-v2.vercel.app
 
 ## Status do Projeto
 Este projeto está em desenvolvimento ativo. Novas funcionalidades estão sendo adicionadas regularmente e bugs estão sendo corrigidos conforme identificados.
-
+Atualmente estou lidando com um problema de conexão a mesma que parou de funcionar recentemente.
