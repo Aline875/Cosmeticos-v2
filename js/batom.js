@@ -33,9 +33,32 @@ function displayProducts(products) {
             <img src="${product.image_link || ''}" alt="${product.name}" style="max-width: 100%; height: auto;" />
             <p class="decricao-produto">${product.description}</p>
             <p>Preço: R$ ${product.price || 'N/A'}</p>
+            <div class="interacoes-produto">
+            <button class="btn-curtir">
+                <img src="../Public/icons8-gostar-32.png" alt="favoritar">
+            </button>
+            <button class="btn-compartilhar">
+                <img src="../Public/icons8-forward-arrow-32.png" alt="compartilhar">
+            </button>
+            <button class="btn-comprar">
+                <img src="../Public/icons8-vender-estoque-32.png" alt="comprar">
+            </button>
+        </div>
+    </div>
         `;
         productList.appendChild(productDiv);
     });
+    document.querySelectorAll('.btn-curtir').forEach(function (botao) {
+        let curtido = false; // Iniciamos o botão como falso para que ele só se mostre curtido após o clique
+        botao.addEventListener('click', function () {
+            const imagemFavorito = botao.querySelector('img');
+            if (curtido) {
+                imagemFavorito.src = '../Public/icons8-gostar-32.png';
+            } else {
+                imagemFavorito.src = '../Public/icons8-coração-cheio-32.png';
+            }
+            curtido = !curtido;
+        });
+    });
 }
-
 window.onload = fetchProducts;

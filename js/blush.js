@@ -57,20 +57,20 @@ function displayProducts(products) {
         `;
         productList.appendChild(productDiv);
     });
+    document.querySelectorAll('.btn-curtir').forEach(function (botao) {
+        let curtido = false; // Iniciamos o botão como falso para que ele só se mostre curtido após o clique
+        botao.addEventListener('click', function () {
+            const imagemFavorito = botao.querySelector('img');
+            if (curtido) {
+                imagemFavorito.src = '../Public/icons8-gostar-32.png';
+            } else {
+                imagemFavorito.src = '../Public/icons8-coração-cheio-32.png';
+            }
+            curtido = !curtido;
+        });
+    });
 }
 
-document.querySelectorAll('.btn-curtir').forEach(function (botao) {
-    let curtido = false; // Iniciamos o botão como falso para que ele só se mostre curtido após o clique
-    botao.addEventListener('click', function () {
-        const imagemFavorito = botao.querySelector('img');
-        if (curtido) {
-            imagemFavorito.src = '../Public/icons8-gostar-32.png';
-        } else {
-            imagemFavorito.src = '../Public/icons8-coração-cheio-32.png';
-        }
-        curtido = !curtido;
-    });
-});
 
 
 
