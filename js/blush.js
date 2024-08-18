@@ -2,7 +2,6 @@ let cosmeticos = [];
 
 const Apiblush = 'https://makeup-api.herokuapp.com/api/v1/products.json?product_type=blush';
 
-
 async function fetchProducts() {
     try {
         const response = await fetch(Apiblush);
