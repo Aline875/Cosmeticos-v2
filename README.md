@@ -35,7 +35,8 @@ Contato: alinebeatriz875@gmail.com
 1. Clone o repositório: `git clone https://github.com/Aline875/Cosmeticos-v2.git`
 2. Navegue até o diretório do projeto: `cd nome-do-repositorio`
 3. Abra o arquivo `index.html` em seu navegador preferido.
-4.
+4. use o MongoDB Compass para rodar o servidor
+5. conecte a sua maquina e rode o servidor com o comando `node-server.js`
 
 ## Pode acessar o projeto em 
 cosmeticos-v2.vercel.app
